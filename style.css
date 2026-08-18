@@ -1,0 +1,525 @@
+:root {
+    --f1-red: #e10600;
+    --f1-black: #15151e;
+    --f1-dark-gray: #1f1f27;
+    --f1-light-gray: #333333;
+    --text-main: #ffffff;
+    --text-muted: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--f1-black);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, .nav-brand {
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.text-red {
+    color: var(--f1-red);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+/* Image Placeholders */
+.image-placeholder {
+    background: repeating-linear-gradient(
+        45deg,
+        #1a1a24,
+        #1a1a24 10px,
+        #242430 10px,
+        #242430 20px
+    );
+    border: 2px dashed var(--f1-light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-muted);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::after {
+    content: attr(data-label);
+    padding: 1rem;
+    background: rgba(0,0,0,0.7);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--f1-red);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: var(--f1-red);
+    transform: scale(1.05);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(21, 21, 30, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--f1-red);
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--f1-red);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--f1-black) 0%, rgba(21, 21, 30, 0.4) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--f1-red);
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--f1-dark-gray);
+    position: relative;
+}
+
+/* Carbon fiber background texture for alternating sections */
+.carbon-fiber {
+    background:
+        linear-gradient(27deg, #15151e 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #15151e 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424 100%);
+    background-color: #131313;
+    background-size: 20px 20px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--f1-red);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-top: 3px solid var(--f1-red);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    color: var(--f1-red);
+}
+
+.about-image {
+    width: 100%;
+    height: 600px;
+}
+
+.creative-shape {
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+/* Achievements Timeline */
+.achievements-section {
+    padding: 100px 0;
+    background-color: var(--f1-black);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 4px;
+    background: var(--f1-light-gray);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 3rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 12px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--f1-red);
+    border-radius: 50%;
+    border: 4px solid var(--f1-black);
+    box-shadow: 0 0 0 2px var(--f1-red);
+}
+
+.timeline-content {
+    background: var(--f1-dark-gray);
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    border-left: 4px solid var(--f1-red);
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-muted);
+}
+
+/* Platform Section & Racecar Reveal */
+.platform-section {
+    padding: 120px 0;
+    background-color: var(--f1-dark-gray);
+    overflow: hidden;
+}
+
+.reveal-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+.platform-text {
+    width: 100%;
+}
+
+.platform-text h3 {
+    color: var(--f1-red);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.platform-text p {
+    margin-bottom: 1rem;
+}
+
+.platform-text-dimmed {
+    color: rgba(255, 255, 255, 0.15); /* Very dimmed */
+}
+
+.platform-text-dimmed h3 {
+    color: rgba(225, 6, 0, 0.2); /* Dimmed red */
+}
+
+.platform-text-revealed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--text-main);
+    /* Initially hidden via clip-path. Will be revealed left-to-right */
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 2.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.racecar-anim {
+    position: absolute;
+    top: 50%;
+    left: 0; /* Starting position (off-screen left) */
+    transform: translate(-100%, -50%);
+    width: 250px; /* Approximate size of the car */
+    z-index: 10;
+    transition: left 2.5s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+/* When the section comes into view */
+.reveal-container.active .platform-text-revealed {
+    clip-path: inset(0 0 0 0); /* Fully revealed */
+}
+
+.reveal-container.active .racecar-anim {
+    left: 100%; /* Drives all the way to the right edge */
+    transform: translate(0, -50%); /* Keeps it slightly visible or moves it completely off, adjust as needed */
+}
+
+/* Posters and Media */
+.media-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--f1-black);
+}
+
+.media-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    border: none;
+}
+
+.posters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.poster-frame {
+    background: var(--f1-dark-gray);
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s ease;
+}
+
+.poster-frame:hover {
+    transform: translateY(-10px);
+}
+
+.poster-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    margin-bottom: 1rem;
+}
+
+.poster-caption {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.event-card {
+    background: var(--f1-dark-gray);
+    padding: 2rem;
+    border-left: 4px solid var(--f1-red);
+    position: relative;
+    overflow: hidden;
+}
+
+.event-date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--f1-red);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+}
+
+.event-card h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #0a0a0f;
+    padding: 60px 0;
+    border-top: 4px solid var(--f1-red);
+}
+
+.footer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    clip-path: none;
+}
+
+.copyright {
+    margin-top: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title { font-size: 3rem; }
+    .about-grid, .posters-grid, .events-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; } /* Simple hiding for mobile, ideally needs a hamburger menu */
+    .timeline::before { left: 0; }
+    .timeline-dot { left: -8px; }
+    .timeline-item { padding-left: 30px; }
+    .racecar-anim { width: 150px; }
+    .aries-grid { grid-template-columns: 1fr; }
+}
+
+/* COMET Aries Section */
+.aries-section {
+    padding: 100px 0;
+    background-color: var(--f1-black);
+    position: relative;
+    border-top: 2px solid var(--f1-light-gray);
+    border-bottom: 2px solid var(--f1-light-gray);
+    background: linear-gradient(135deg, var(--f1-black) 0%, #0a0a0f 100%);
+}
+
+.aries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.aries-image {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
