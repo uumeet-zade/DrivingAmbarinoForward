@@ -25,7 +25,7 @@
     <!-- Hero Section -->
     <header class="hero" id="home">
         <!-- Replaced background placeholder with real image -->
-        <div class="hero-bg" style="background-image: url('pictures/PiastriDuringRaceInCar.webp'); background-size: cover; background-position: center;"></div>
+        <div class="hero-bg" style="background-image: url('pictures/PiastriJapaneseGP.jpg'); background-size: cover; background-position: center;"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-badge">Bündnis Solidarität Gex &bull; Alternative Labour Party</div>
@@ -34,6 +34,27 @@
             <a href="#platform" class="btn btn-primary">Discover the Platform</a>
         </div>
     </header>
+
+    <!-- Dynamic Headline Banner -->
+    <div class="headline-banner">
+        <div class="container text-center">
+            <h2 class="dynamic-headline">
+                STAY 
+                <span class="rolling-wrapper">
+                    <span class="rolling-inner" id="rolling-words">
+                        <span class="text-red">DRIVEN</span>
+                        <span class="text-red">STRONG</span>
+                        <span class="text-red">AHEAD</span>
+                        <span class="text-red">TRUE</span>
+                        <span class="text-red">BOLD</span>
+                        <span class="text-red">READY</span>
+                        <span class="text-red">DRIVEN</span> <!-- Cloned for seamless loop -->
+                    </span>
+                </span>. 
+                STAY FOCUSED. STAY FAST.
+            </h2>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section class="about-section" id="about">
@@ -113,29 +134,44 @@
         <div class="container">
             <h2 class="section-title text-center" style="margin-bottom: 4rem;">THE <span class="text-red">PLATFORM</span></h2>
             
-            <div class="reveal-container" id="reveal-container">
-                <!-- Dimmed text (background) -->
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 3rem auto; color: var(--text-muted); font-size: 1.2rem;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="reveal-container platform-item">
                 <div class="platform-text platform-text-dimmed">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <h3>1. Accelerating the Economy</h3>
                     <p>We will streamline regulations and boost innovation, creating high-speed growth for all sectors in Ambarino.</p>
-                    <h3>2. Next-Gen Infrastructure</h3>
-                    <p>Building the roads, digital networks, and spaceports (COMET) of the future.</p>
                 </div>
-                
-                <!-- Bright text (revealed) -->
                 <div class="platform-text platform-text-revealed">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <h3>1. Accelerating the Economy</h3>
                     <p>We will streamline regulations and boost innovation, creating high-speed growth for all sectors in Ambarino.</p>
+                </div>
+                <img src="racecar.png" alt="F1 Racecar" class="racecar-anim">
+            </div>
+
+            <div class="reveal-container platform-item">
+                <div class="platform-text platform-text-dimmed">
                     <h3>2. Next-Gen Infrastructure</h3>
                     <p>Building the roads, digital networks, and spaceports (COMET) of the future.</p>
                 </div>
+                <div class="platform-text platform-text-revealed">
+                    <h3>2. Next-Gen Infrastructure</h3>
+                    <p>Building the roads, digital networks, and spaceports (COMET) of the future.</p>
+                </div>
+                <img src="racecar.png" alt="F1 Racecar" class="racecar-anim">
+            </div>
 
-                <!-- Racecar -->
-                <img src="racecar.png" alt="F1 Racecar" class="racecar-anim" id="racecar">
+            <div class="reveal-container platform-item">
+                <div class="platform-text platform-text-dimmed">
+                    <h3>3. Uniting Ambarino</h3>
+                    <p>Bringing our communities together with the same precision and teamwork as a championship-winning pit crew.</p>
+                </div>
+                <div class="platform-text platform-text-revealed">
+                    <h3>3. Uniting Ambarino</h3>
+                    <p>Bringing our communities together with the same precision and teamwork as a championship-winning pit crew.</p>
+                </div>
+                <img src="racecar.png" alt="F1 Racecar" class="racecar-anim">
             </div>
         </div>
     </section>

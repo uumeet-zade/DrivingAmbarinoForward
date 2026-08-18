@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Intersection Observer for the racecar text reveal animation
-    const revealContainer = document.getElementById('reveal-container');
+    const revealContainers = document.querySelectorAll('.reveal-container');
 
-    if (revealContainer) {
+    if (revealContainers.length > 0) {
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -13,17 +13,49 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     // Add the active class to trigger the CSS transition
-                    revealContainer.classList.add('active');
-                    // Optional: unobserve if you only want it to animate once
-                    // observer.unobserve(entry.target);
+                    entry.target.classList.add('active');
                 } else {
                     // Remove if you want it to reset when scrolled out of view
-                    revealContainer.classList.remove('active');
+                    entry.target.classList.remove('active');
                 }
             });
         }, observerOptions);
 
-        observer.observe(revealContainer);
+        revealContainers.forEach(container => {
+            observer.observe(container);
+        });
+    }
+
+    // Rolling Dynamic Word Cycle
+    const rollingInner = document.getElementById('rolling-words');
+    const rollingWrapper = document.querySelector('.rolling-wrapper');
+    if (rollingInner && rollingWrapper) {
+        const wordCount = rollingInner.children.length;
+        let currentIndex = 0;
+        
+        // Initialize the wrapper width to the first word's width
+        rollingWrapper.style.width = rollingInner.children[0].offsetWidth + 'px';
+        
+        setInterval(() => {
+            currentIndex++;
+            
+            // Update the width of the wrapper to match the new word smoothly
+            const newWidth = rollingInner.children[currentIndex].offsetWidth;
+            rollingWrapper.style.width = newWidth + 'px';
+
+            rollingInner.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            rollingInner.style.transform = `translateY(-${currentIndex * 1.2}em)`;
+
+            // If we reached the cloned word (the last child)
+            if (currentIndex === wordCount - 1) {
+                setTimeout(() => {
+                    // Instantly reset to the first word without transition
+                    rollingInner.style.transition = 'none';
+                    currentIndex = 0;
+                    rollingInner.style.transform = `translateY(0)`;
+                }, 600); // Wait for the transition to finish
+            }
+        }, 2500); // Roll every 2.5 seconds
     }
 
     // Smooth scrolling for navigation links
